@@ -1,0 +1,3 @@
+mail.example.com /etc/ssl/mail.example.com.key /etc/ssl/mail.example.com.crt
+mail.example.org /etc/ssl/mail.example.org.key /etc/ssl/mail.example.org.crt
+mail.example.net /etc/ssl/mail.example.net.key /etc/ssl/mail.example.net.crt

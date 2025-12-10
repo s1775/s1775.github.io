@@ -1,0 +1,14 @@
+local_name mail.example.com {
+  ssl_cert = </etc/ssl/mail.example.com.crt
+  ssl_key = </etc/ssl/mail.example.com.key
+}
+
+local_name mail.example.org {
+  ssl_cert = </etc/ssl/mail.example.org.crt
+  ssl_key = </etc/ssl/mail.example.org.key
+}
+
+local_name mail.example.net {
+  ssl_cert = </etc/ssl/mail.example.net.crt
+  ssl_key = </etc/ssl/mail.example.net.key
+}
