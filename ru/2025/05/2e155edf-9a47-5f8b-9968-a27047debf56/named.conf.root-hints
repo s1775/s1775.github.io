@@ -1,0 +1,4 @@
+view "default" {
+  match-clients { any; };
+  zone "." { type hint; file "/usr/share/dns/root.hints"; };
+};

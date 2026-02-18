@@ -1,0 +1,23 @@
+acl local { 127.0.0.0/8; };
+acl trusted { 127.0.0.0/8; };
+
+options {
+  directory "/var/cache/bind";
+
+  listen-on { any; };
+  listen-on-v6 { none; };
+  recursion yes;
+
+  allow-query { trusted; };
+  allow-recursion { trusted; };
+  allow-transfer { none; };
+
+  auth-nxdomain no;
+  empty-zones-enable yes;
+  dnssec-validation no;
+  qname-minimization off;
+  version none;
+
+  // forward only;
+  // forwarders { 8.8.8.8; 77.88.8.8; };
+};

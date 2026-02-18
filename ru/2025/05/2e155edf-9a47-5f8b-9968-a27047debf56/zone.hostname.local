@@ -1,0 +1,17 @@
+$TTL 3h
+$ORIGIN hostname.local.
+; SOA
+@                   IN  SOA     ns1.hostname.local. postmaster.hostname.local. (
+                                2025031500  ; Serial
+                                10m         ; Refresh
+                                1h          ; Retry
+                                1w          ; Expire
+                                6m )        ; Negative Cache TTL
+; NS
+@                   IN  NS      ns1.hostname.local.
+ns1                 IN  A       127.0.0.1
+; MAIN
+@                   IN  A       127.0.0.1
+; MAIL
+@                   IN  MX  10  mail.hostname.local.
+mail                IN  A       127.0.0.1

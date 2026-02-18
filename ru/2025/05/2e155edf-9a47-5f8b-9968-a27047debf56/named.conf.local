@@ -1,0 +1,10 @@
+// view "local" {
+//   match-clients { local; };
+//   zone "example.com" { type primary; file "/etc/bind/zone.example.com.local"; };
+// };
+
+view "public" {
+  match-clients { any; };
+  zone "example.com" { type primary; file "/etc/bind/zone.example.com"; };
+  zone "1.168.192.in-addr.arpa" { type primary; file "/etc/bind/zone.example.com.rev"; };
+};
