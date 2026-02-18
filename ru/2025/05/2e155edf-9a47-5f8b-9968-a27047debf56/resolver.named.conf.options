@@ -9,6 +9,7 @@ options {
   recursion yes;
 
   allow-query { trusted; };
+  allow-query-cache { trusted; };
   allow-recursion { trusted; };
   allow-transfer { none; };
 
