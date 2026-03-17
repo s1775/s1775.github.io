@@ -1,0 +1,15 @@
+[Unit]
+Description=3proxy Proxy Server
+After=network.target
+
+[Service]
+Type=forking
+User=proxy3
+Group=proxy3
+ExecStart=/usr/local/bin/3proxy /usr/local/etc/3proxy.cfg
+ExecReload=/bin/kill -SIGUSR1 $MAINPID
+KillMode=process
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
