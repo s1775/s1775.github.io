@@ -9,4 +9,3 @@ user_pref("mail.serverDefaultStoreContractID", "@mozilla.org/msgstore/maildirsto
 user_pref("mailnews.start_page.enabled", false);
 user_pref("messenger.startup.action", 0);
 user_pref("messenger.status.reportIdle", false);
-user_pref("network.proxy.type", 0);
