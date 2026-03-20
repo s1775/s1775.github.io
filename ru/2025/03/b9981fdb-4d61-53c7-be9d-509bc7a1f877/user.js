@@ -1,3 +1,4 @@
+// user_pref("browser.urlbar.decodeURLsOnCopy", true);
 user_pref("app.normandy.first_run", false);
 user_pref("app.shield.optoutstudies.enabled", false);
 user_pref("apz.overscroll.enabled", true);
