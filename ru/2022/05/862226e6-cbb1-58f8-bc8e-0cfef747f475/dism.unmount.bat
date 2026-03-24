@@ -1,7 +1,7 @@
 rem # Automatic unmounting WIM images into DISM.
 rem #
 rem # @package   CMD
-rem # @author    Kai Kimera <mail@kai.kim>
+rem # @author    Kai Kimera <mail@kaikim.ru>
 rem # @copyright 2023 Library Online
 rem # @license   MIT
 rem # @version   0.1.0

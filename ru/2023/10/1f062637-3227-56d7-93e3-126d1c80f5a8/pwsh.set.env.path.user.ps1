@@ -2,9 +2,7 @@
 .VERSION      0.1.0
 .GUID         79f23918-308a-412c-8835-b1bb9c9193e3
 .AUTHOR       Kai Kimera
-.AUTHOREMAIL  mail@kai.kim
-.COMPANYNAME  Library Online
-.COPYRIGHT    2023 Library Online. All rights reserved.
+.AUTHOREMAIL  mail@kaikim.ru
 .LICENSEURI   https://choosealicense.com/licenses/mit/
 .PROJECTURI   https://libsys.ru/ru/2023/10/1f062637-3227-56d7-93e3-126d1c80f5a8/
 #>

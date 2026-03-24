@@ -2,9 +2,7 @@
 .VERSION      0.1.0
 .GUID         fc37f35a-a9b7-43ed-8316-9520cbae9622
 .AUTHOR       koolance / Kai Kimera
-.AUTHOREMAIL  mail@kai.kim
-.COMPANYNAME  Library Online
-.COPYRIGHT    2024 Library Online. All rights reserved.
+.AUTHOREMAIL  mail@kaikim.ru
 .TAGS         windows veritas backup exec
 .LICENSEURI   https://choosealicense.com/licenses/mit/
 .PROJECTURI   https://libsys.ru/ru/2025/03/0e079d06-d87d-50de-b8e2-713a8ddb8fd6/

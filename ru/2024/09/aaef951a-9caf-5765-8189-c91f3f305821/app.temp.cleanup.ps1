@@ -2,9 +2,7 @@
 .VERSION      0.1.0
 .GUID         f5e8380e-4e2f-4c58-972e-a60ace8dee8e
 .AUTHOR       Kai Kimera
-.AUTHOREMAIL  mail@kai.kim
-.COMPANYNAME  Library Online
-.COPYRIGHT    2024 Library Online. All rights reserved.
+.AUTHOREMAIL  mail@kaikim.ru
 .TAGS         windows temp cleanup
 .LICENSEURI   https://choosealicense.com/licenses/mit/
 .PROJECTURI   https://libsys.ru/ru/2024/09/aaef951a-9caf-5765-8189-c91f3f305821/

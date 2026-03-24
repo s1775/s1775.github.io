@@ -3,7 +3,7 @@
 # OpenSSL certificate generator with CA.
 #
 # @package    Bash
-# @author     Kai Kimera <mail@kai.kim>
+# @author     Kai Kimera <mail@kaikim.ru>
 # @copyright  2023 Library Online
 # @license    MIT
 # @version    0.1.2
