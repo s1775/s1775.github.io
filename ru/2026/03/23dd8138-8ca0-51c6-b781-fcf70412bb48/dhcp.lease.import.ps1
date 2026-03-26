@@ -51,7 +51,8 @@ function Import-DHCP {
         Description = "$($_.Description)"
         ClientType = "$($_.Type)"
       }
-      Write-Host Add-DhcpServerv4Lease @DhcpLease
+
+      Add-DhcpServerv4Lease @DhcpLease
     })
   } catch {
     Write-Error "ERROR: $($_.Exception.Message)"
