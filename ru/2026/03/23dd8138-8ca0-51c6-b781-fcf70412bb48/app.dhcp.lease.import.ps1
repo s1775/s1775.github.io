@@ -18,7 +18,7 @@ Importing clients to the DHCP server.
 Bulk import of clients to DHCP server from XML file.
 
 .EXAMPLE
-.\dhcp.lease.import.ps1 -Scope '192.168.2.0' -Path 'C:\DHCPServer.xml'
+.\app.dhcp.lease.import.ps1 -Scope '192.168.2.0' -Path 'C:\DHCPServer.xml'
 
 .LINK
 https://libsys.ru/ru/2026/03/23dd8138-8ca0-51c6-b781-fcf70412bb48/
