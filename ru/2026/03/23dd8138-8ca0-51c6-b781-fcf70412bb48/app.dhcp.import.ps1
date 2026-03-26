@@ -18,7 +18,10 @@ Importing clients to the DHCP server.
 Bulk import of clients to DHCP server from XML file.
 
 .EXAMPLE
-.\app.dhcp.reservation.import.ps1 -Scope '192.168.2.0' -Path 'C:\DHCPServer.xml'
+.\app.dhcp.import.ps1 -Scope '192.168.2.0' -Path 'C:\DHCPServer.xml'
+
+.EXAMPLE
+.\app.dhcp.import.ps1 -Scope '192.168.2.0' -Path 'C:\DHCPServer.xml' -Lease
 
 .LINK
 https://libsys.ru/ru/2026/03/23dd8138-8ca0-51c6-b781-fcf70412bb48/
@@ -30,11 +33,12 @@ https://libsys.ru/ru/2026/03/23dd8138-8ca0-51c6-b781-fcf70412bb48/
 
 param(
   [Parameter(Mandatory)][System.Net.IPAddress]$Scope,
-  [string]$Path = "${PSScriptRoot}\DHCPServer.xml"
+  [string]$Path = "${PSScriptRoot}\DHCPServer.xml",
+  [switch]$Lease
 )
 
 $XML = [xml](Get-Content -LiteralPath "${Path}")
-$Reservation = $XML.DHCPServer.IPv4.Scopes.Scope.Reservations.Reservation
+$Data = $XML.DHCPServer.IPv4.Scopes.Scope.Reservations.Reservation
 
 # -------------------------------------------------------------------------------------------------------------------- #
 # -----------------------------------------------------< SCRIPT >----------------------------------------------------- #
@@ -42,17 +46,25 @@ $Reservation = $XML.DHCPServer.IPv4.Scopes.Scope.Reservations.Reservation
 
 function Import-DHCP {
   try {
-    $Reservation.ForEach({
-      $Data = @{
+    $Data.ForEach({
+      $Common = @{
         ScopeId = "${Scope}"
         IPAddress = "$($_.IPAddress)"
         ClientId = "$($_.ClientId)"
-        Name = "$($_.Name)"
         Description = "$($_.Description)"
-        Type = "$($_.Type)"
       }
 
-      Add-DhcpServerv4Reservation @Data
+      if ($Lease) {
+        $Client = @{
+          HostName = "$($_.Name)"
+          ClientType = "$($_.Type)"
+        }; Add-DhcpServerv4Lease @Common @Client
+      } else {
+        $Client = @{
+          Name = "$($_.Name)"
+          Type = "$($_.Type)"
+        }; Add-DhcpServerv4Reservation @Common @Client
+      }
     })
   } catch {
     Write-Error "ERROR: $($_.Exception.Message)"
