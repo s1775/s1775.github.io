@@ -18,7 +18,7 @@ Importing clients to the DHCP server.
 Bulk import of clients to DHCP server from XML file.
 
 .EXAMPLE
-.\app.dhcp.lease.import.ps1 -Scope '192.168.2.0' -Path 'C:\DHCPServer.xml'
+.\app.dhcp.reservation.import.ps1 -Scope '192.168.2.0' -Path 'C:\DHCPServer.xml'
 
 .LINK
 https://libsys.ru/ru/2026/03/23dd8138-8ca0-51c6-b781-fcf70412bb48/
@@ -43,16 +43,16 @@ $Reservation = $XML.DHCPServer.IPv4.Scopes.Scope.Reservations.Reservation
 function Import-DHCP {
   try {
     $Reservation.ForEach({
-      $DhcpLease = @{
-        IPAddress = "$($_.IPAddress)"
+      $Data = @{
         ScopeId = "${Scope}"
+        IPAddress = "$($_.IPAddress)"
         ClientId = "$($_.ClientId)"
-        HostName = "$($_.Name)"
+        Name = "$($_.Name)"
         Description = "$($_.Description)"
-        ClientType = "$($_.Type)"
+        Type = "$($_.Type)"
       }
 
-      Add-DhcpServerv4Lease @DhcpLease
+      Add-DhcpServerv4Reservation @Data
     })
   } catch {
     Write-Error "ERROR: $($_.Exception.Message)"
