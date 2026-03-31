@@ -1,7 +1,6 @@
 [Unit]
 Description=X-UI Service
-After=network.target
-Wants=network.target
+After=multi-user.target
 
 [Service]
 EnvironmentFile=-/etc/default/x-ui
