@@ -1,0 +1,5 @@
+SHELL=/bin/bash
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOME=/root
+
+0 2 * * * root '/usr/local/bin/x-ui' 'update-all-geofiles' > /dev/null 2>&1
