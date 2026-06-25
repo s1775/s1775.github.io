@@ -1,4 +1,5 @@
 [Definition]
 
 loglevel = INFO
+logtarget = SYSLOG
 allowipv6 = auto
