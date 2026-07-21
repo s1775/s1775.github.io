@@ -1,0 +1,70 @@
+[
+  {
+    "type": "field",
+    "inboundTag": [
+      "api"
+    ],
+    "outboundTag": "api"
+  },
+  {
+    "type": "field",
+    "ip": [
+      "geoip:private"
+    ],
+    "outboundTag": "blocked"
+  },
+  {
+    "type": "field",
+    "protocol": [
+      "bittorrent"
+    ],
+    "outboundTag": "blocked"
+  },
+  {
+    "type": "field",
+    "port": "443",
+    "network": "UDP",
+    "outboundTag": "blocked"
+  },
+  {
+    "type": "field",
+    "domain": [
+      "geosite:category-ads-all"
+    ],
+    "outboundTag": "blocked"
+  },
+  {
+    "type": "field",
+    "ip": [
+      "geoip:ru"
+    ],
+    "outboundTag": "blocked"
+  },
+  {
+    "type": "field",
+    "domain": [
+      "geosite:category-ru"
+    ],
+    "outboundTag": "blocked"
+  },
+  {
+    "type": "field",
+    "domain": [
+      "regexp:.*\\.am$",
+      "regexp:.*\\.az$",
+      "regexp:.*\\.by$",
+      "regexp:.*\\.kg$",
+      "regexp:.*\\.kz$",
+      "regexp:.*\\.md$",
+      "regexp:.*\\.mn$",
+      "regexp:.*\\.ru$",
+      "regexp:.*\\.su$",
+      "regexp:.*\\.tatar$",
+      "regexp:.*\\.tj$",
+      "regexp:.*\\.tm$",
+      "regexp:.*\\.uz$",
+      "regexp:.*\\.xn--p1ai"
+    ],
+    "outboundTag": "blocked"
+  }
+]
