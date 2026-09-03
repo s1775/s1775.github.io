@@ -1,0 +1,6 @@
+/^X-Mailer:/ IGNORE
+/^X-Mailer-Type:/ IGNORE
+/^User-Agent:/ IGNORE
+/^Received:/ IGNORE
+/^X-Originating-IP:/ IGNORE
+/^X-PHP-Originating-Script:/ IGNORE
