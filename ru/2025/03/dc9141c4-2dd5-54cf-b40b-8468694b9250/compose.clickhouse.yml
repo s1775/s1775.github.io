@@ -1,0 +1,26 @@
+services:
+  clickhouse:
+    image: docker.io/clickhouse/clickhouse-server:latest
+    container_name: clickhouse
+    restart: unless-stopped
+    volumes:
+      - clickhouse_data:/var/lib/clickhouse:Z
+      - clickhouse_logs:/var/log/clickhouse-server:Z
+      - clickhouse_conf:/etc/clickhouse-server:Z
+    ports: ['6379:6379']
+    networks: ['example_net']
+    healthcheck:
+      test: ['CMD', '', '']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  clickhouse_data:
+    driver: local
+  clickhouse_logs:
+    driver: local
+  clickhouse_conf:
+    driver: local
+networks:
+  example_net:
+    driver: bridge

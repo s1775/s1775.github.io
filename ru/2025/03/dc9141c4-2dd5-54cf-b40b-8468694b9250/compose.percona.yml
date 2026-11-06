@@ -1,0 +1,31 @@
+services:
+  percona:
+    image: docker.io/percona/percona-server:latest
+    container_name: percona
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: 'PASSWORD'
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - percona_data:/var/lib/mysql:Z
+      - percona_logs:/var/log/mysql:Z
+      - percona_backups:/backups:Z
+    ports: ['3306:3306']
+    networks: ['example_net']
+    healthcheck:
+      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost', '-u', '${MYSQL_USER}', '-p${MYSQL_PASSWORD}']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  percona_data:
+    driver: local
+  percona_logs:
+    driver: local
+  percona_backups:
+    driver: local
+networks:
+  example_net:
+    driver: bridge

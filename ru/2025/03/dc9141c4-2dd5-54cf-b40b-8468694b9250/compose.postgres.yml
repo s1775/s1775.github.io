@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: ghcr.io/pglayers/pglayers-full:18
+    container_name: postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: 'PASSWORD'
+    volumes:
+      - postgres_data:/var/lib/postgresql:Z
+      - postgres_logs:/var/log/postgresql:Z
+    ports: ['5432:5432']
+    networks: ['example_net']
+    healthcheck:
+      test: ['CMD', 'pg_isready', '-U', 'postgres']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  postgres_data:
+    driver: local
+  postgres_logs:
+    driver: local
+networks:
+  example_net:
+    driver: bridge

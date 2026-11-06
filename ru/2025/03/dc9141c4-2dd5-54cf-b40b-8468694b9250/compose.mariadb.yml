@@ -1,0 +1,35 @@
+services:
+  mariadb:
+    image: docker.io/mariadb:lts
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: 'PASSWORD'
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+    volumes:
+      - mariadb_data:/var/lib/mysql:Z
+      - mariadb_logs:/var/log/mysql:Z
+      - mariadb_conf:/etc/mysql:Z
+      - mariadb_backups:/backup:Z
+    ports: ['3306:3306']
+    networks: ['example_net']
+    healthcheck:
+      test: ['CMD', 'healthcheck.sh', '--connect', '--innodb_initialized']
+      start_period: 10s
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  mariadb_data:
+    driver: local
+  mariadb_logs:
+    driver: local
+  mariadb_conf:
+    driver: local
+  mariadb_backups:
+    driver: local
+networks:
+  example_net:
+    driver: bridge

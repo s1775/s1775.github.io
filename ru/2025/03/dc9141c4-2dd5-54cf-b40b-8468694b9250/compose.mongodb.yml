@@ -1,0 +1,20 @@
+services:
+  mongodb:
+    image: docker.io/mongodb/mongodb-community-server:9.0-ubi9-slim
+    container_name: mongodb
+    restart: unless-stopped
+    volumes:
+      - mongodb_data:/data/db:Z
+    ports: ['27017:27017']
+    networks: ['example_net']
+    healthcheck:
+      test: ['CMD', 'mongosh', '--eval', 'db.adminCommand("ping")']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  mongodb_data:
+    driver: local
+networks:
+  example_net:
+    driver: bridge

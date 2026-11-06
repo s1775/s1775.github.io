@@ -1,0 +1,23 @@
+services:
+  angie:
+    image: docker.angie.software/angie:latest
+    container_name: angie
+    restart: unless-stopped
+    volumes:
+      - angie_html:/usr/share/angie/html:Z
+      - angie_conf:/etc/angie:Z
+    ports: ['80:80', '443:443']
+    networks: ['example_net']
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+volumes:
+  angie_html:
+    driver: local
+  angie_conf:
+    driver: local
+networks:
+  example_net:
+    driver: bridge
